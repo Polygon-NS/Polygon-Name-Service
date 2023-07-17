@@ -1,5 +1,5 @@
 # Polygon Name Service for Polygon zkEVM
-This document will help you incorporate .polygon into your projects. In the document, available functions are examined by including web3.js and .polygon name service in your project.
+This document will help you incorporate .pol into your projects. In the document, available functions are examined by including web3.js and .pol name service in your project.
 
 
 ### Requirements
@@ -45,12 +45,12 @@ const web3 = new Web3(Web3.givenProvider)
 // First create a web3js provider
 
 const polygonNS = new polygonNS(web3)
-// You are now ready for .polygon
+// You are now ready for .pol
 ```
 
 ## GETS
 
-**Primary Address (Ethereum Address to .polygon Name)**
+**Primary Address (Ethereum Address to .pol Name)**
 
 Returns the primary address registered to this address.
 ```javascript
@@ -61,13 +61,13 @@ polygonNS.primaryAddress("ETH_ADDRESS")
 })
 ```
 
-**Resolve Address  (.polygon Name to Ethereum Address)**
+**Resolve Address  (.pol Name to Ethereum Address)**
 
-Returns the resolved ethereum address of the .polygon name.
+Returns the resolved ethereum address of the .pol name.
 ```javascript
-polygonNS.resolveAddress("name.polygon").then(function(result){
+polygonNS.resolveAddress("name.pol").then(function(result){
     console.log(result)
-    // Returns the resolved ethereum address of the .polygon name.
+    // Returns the resolved ethereum address of the .pol name.
 })
 ```
 
@@ -82,11 +82,11 @@ polygonNS.addressOwners("ETH_ADDRESS").then(function(resultOwners){
 
 **Last registered names**
 
-Returns the last  registered .polygon names
+Returns the last  registered .pol names
 ```javascript
 polygonNS.lastAddresses(20).then(function(result){
     console.log(result)
-    //Returns the last 10 registered .polygon name
+    //Returns the last 10 registered .pol name
 })
 ```
 
@@ -114,7 +114,7 @@ polygonNS.getData("name","data_name").then(function(result){
 
 **Get Twitter Account**
 
-Get Twitter account from .polygon name.
+Get Twitter account from .pol name.
 ```javascript
 polygonNS.getTwitter(name).then(function(account_twitter){
      console.log(account_twitter)
@@ -124,7 +124,7 @@ polygonNS.getTwitter(name).then(function(account_twitter){
 
 **Get Instagram Account**
 
-Get Instagram account from .polygon name.
+Get Instagram account from .pol name.
 ```javascript
 polygonNS.getInstragram(name).then(function(account_instagram){
      console.log(account_instagram)
@@ -133,7 +133,7 @@ polygonNS.getInstragram(name).then(function(account_instagram){
 
 **Get Discord Account**
 
-Get Discord account from .polygon name.
+Get Discord account from .pol name.
 ```javascript
 polygonNS.getDiscord(name).then(function(account_discord){
      console.log(account_discord)
@@ -142,7 +142,7 @@ polygonNS.getDiscord(name).then(function(account_discord){
 
 **Get Telegram Account**
 
-Get Telegram account from .polygon name.
+Get Telegram account from .pol name.
 ```javascript
 polygonNS.getTelegram(name).then(function(account_telegram){
      console.log(account_telegram)
@@ -151,7 +151,7 @@ polygonNS.getTelegram(name).then(function(account_telegram){
 
 **Get URL**
 
-Get URL from .polygon name.
+Get URL from .pol name.
 ```javascript
 polygonNS.getUrl(name).then(function(account_url){
      console.log(account_url)
@@ -160,7 +160,7 @@ polygonNS.getUrl(name).then(function(account_url){
 
 **Get Email**
 
-Get Email from .polygon name.
+Get Email from .pol name.
 ```javascript
 polygonNS.getEmail(name).then(function(account_email){
      console.log(account_email)
@@ -170,7 +170,7 @@ polygonNS.getEmail(name).then(function(account_email){
 
 **Get Description**
 
-Get Description from .polygon name.
+Get Description from .pol name.
 ```javascript
 polygonNS.getDescription(name).then(function(account_description){
      console.log(account_description)
@@ -179,7 +179,7 @@ polygonNS.getDescription(name).then(function(account_description){
 
 **Get Avatar**
 
-Get Avatar from .polygon name.
+Get Avatar from .pol name.
 ```javascript
 polygonNS.getKeywords(name).then(function(account_keywords){
      console.log(account_keywords)
@@ -192,7 +192,7 @@ polygonNS.getKeywords(name).then(function(account_keywords){
 
 Changes the primary address.
 ```javascript
-polygonNS.setPrimaryAddress("name.polygon","OWNER_ETH_ADDRESS").then(function(result){
+polygonNS.setPrimaryAddress("name.pol","OWNER_ETH_ADDRESS").then(function(result){
     if (result['status']) {
      //Successful
      } else {
@@ -205,7 +205,7 @@ polygonNS.setPrimaryAddress("name.polygon","OWNER_ETH_ADDRESS").then(function(re
 
 Changes the resolve address.
 ```javascript
- polygonNS.setResolveAddress("name.polygon","NEW_RESOLVE_ETH_ADDRESS", "OWNER_ETH_ADDRESS").then(function(result){
+ polygonNS.setResolveAddress("name.pol","NEW_RESOLVE_ETH_ADDRESS", "OWNER_ETH_ADDRESS").then(function(result){
         if (result['status']) {
         //Successful
         } else {
@@ -216,9 +216,9 @@ Changes the resolve address.
 
 **Register Domain**
 
-Registers a new .polygon address and returns the result.
+Registers a new .pol address and returns the result.
 ```javascript
-polygonNS.register("name.polygon",YOUR_REF_ADDRESS,YOUR_ETH_ADDRESS,"3000000000000000").then(function(result){
+polygonNS.register("name.pol",YOUR_REF_ADDRESS,YOUR_ETH_ADDRESS,"3000000000000000").then(function(result){
     if (result['status']) {
         // Registration Successful
     } else {
