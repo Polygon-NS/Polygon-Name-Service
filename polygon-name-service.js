@@ -37,7 +37,7 @@ setData_check_gas(name,area,value,account){
 }
 
 setData(name,area,value,account,gasAmount){
-	let result=name.replace(".polygon","");
+	let result=name.replace(".pol","");
 	return this.contract.methods.setDataAddress(name,area,value).send({gasLimit: String(gasAmount),from:account}).once("error",(err)=>{
 		console.log(err);
 		}).then((receipt)=>{
@@ -71,16 +71,16 @@ setPrimaryAddress(name,account,gasAmount){
 	});}
 
 Register_check_gas(name,ref_address,account,value){
-	return this.contract.methods.Register(name.replace(".polygon",""),ref_address)
+	return this.contract.methods.Register(name.replace(".pol",""),ref_address)
   .estimateGas({from:account,value:value})
   .then(function(gasAmount){ return gasAmount;
     }).catch(function(error){
 	if(String(error).indexOf("already")!== -1){
 	  $('#toast').toast('show');
-      $('#toast_message').text(""+name+".polygon has already been taken.");
+      $('#toast_message').text(""+name+".pol has already been taken.");
 		} else if(String(error).indexOf("Invalid")!== -1){
 	  $('#toast').toast('show');
-      $('#toast_message').text(""+name+".polygon is invalid Name");
+      $('#toast_message').text(""+name+".pol is invalid Name");
 		} else if(String(error).indexOf("not active")!== -1){
 	  $('#toast').toast('show');
       $('#toast_message').text("Mint hasn't started yet.");
@@ -93,7 +93,7 @@ Register_check_gas(name,ref_address,account,value){
 
 
 Register(name,ref_address,account,value,gasAmount) {
-  return this.contract.methods.Register(name.replace(".polygon",""),ref_address).send({gasLimit: String(gasAmount),from: account,value: value}).once("error", (err) => {
+  return this.contract.methods.Register(name.replace(".pol",""),ref_address).send({gasLimit: String(gasAmount),from: account,value: value}).once("error", (err) => {
       console.log(err);
     })
     .then((receipt) => {
@@ -109,11 +109,11 @@ Register(name,ref_address,account,value,gasAmount) {
 ownerOf(token_id){return this.contract.methods.ownerOf(token_id).call((err,result)=>{if(err){console.error('Error: ',err);return err;}else{return result;}}).catch(function(error){return error;});}
 lastAddresses(count){return this.contract.methods.lastAddresses(count).call((err,result)=>{if(err){console.error('Error: ',err);return err;}else{return result;}}).catch(function(error){return error;});}
 addressOwnersMap(address){return this.contract.methods.walletOfOwnerMap(address).call((err,result)=>{if(err){console.error('Error: ',err);return err;}else{return result;}}).catch(function(error){return error;});}
-async resolveAddress(name){let result=name.replace(".polygon","");return this.contract.methods.resolveAddress(result).call((err,result)=>{if(err){console.error('Error: ',err);return err;}else{return result;}});}
+async resolveAddress(name){let result=name.replace(".pol","");return this.contract.methods.resolveAddress(result).call((err,result)=>{if(err){console.error('Error: ',err);return err;}else{return result;}});}
 allowlistAddresses(address){return this.contract.methods.allowlistAddresses(address).call((err,result)=>{if(err){console.error('Error: ',err);return err;}else{return result;}}).catch(function(error){return error;});}
-checkName(name){let name2=name.replace(".polygon","");return this.contract.methods._checkName(name2).call((err,result)=>{if(err){console.error('Error: ',err);return err;}else{return result;}}).catch(function(error){return error;});}
-isTaken(name){let name3=name.replace(".polygon","");return this.contract.methods.tokenAddressandID(name3).call((err,result)=>{if(err){console.error('Error: ',err);return err;}else{return result;}}).catch(function(error){return error;});}
-getData(name,data){let result=name.replace(".polygon","");return this.contract.methods.getDataAddress(result,data).call((err,result)=>{if(err){console.error('Error: ',err);return err;}else{return result;}});}
+checkName(name){let name2=name.replace(".pol","");return this.contract.methods._checkName(name2).call((err,result)=>{if(err){console.error('Error: ',err);return err;}else{return result;}}).catch(function(error){return error;});}
+isTaken(name){let name3=name.replace(".pol","");return this.contract.methods.tokenAddressandID(name3).call((err,result)=>{if(err){console.error('Error: ',err);return err;}else{return result;}}).catch(function(error){return error;});}
+getData(name,data){let result=name.replace(".pol","");return this.contract.methods.getDataAddress(result,data).call((err,result)=>{if(err){console.error('Error: ',err);return err;}else{return result;}});}
 getTwitter(name){return this.getData(name,'twitter')}
 getInstagram(name){return this.getData(name,'instagram')}
 getEmail(name){return this.getData(name,'email')}
